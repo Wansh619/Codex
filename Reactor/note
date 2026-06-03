@@ -1,0 +1,6 @@
+ip :10.129.5.13
+user: engineer
+password: 	reactor1
+
+ssh  engineer@10.129.5.13
+ssh -L 8080:127.0.0.1:80 engineer@10.129.5.13
