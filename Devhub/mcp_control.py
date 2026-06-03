@@ -3,7 +3,7 @@ import json
 
 
 target = "http://devhub.htb"
-ip = "10.10.16.86"
+ip = "10.10.16.29"
 port = "4444"
 
 url = f'{target}:6274/api/mcp/connect'
