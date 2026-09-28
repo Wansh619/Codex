@@ -1,0 +1,13 @@
+Yes — the exact place to look is:
+
+•  Root incron table: /var/spool/incron/root
+•  Relevant rule:  
+  /var/spool/asterisk/sysadmin/dahdi_restart IN_CLOSE_WRITE /usr/sbin/sysadmin_dahdi_restart
+
+That means writes to this file trigger a root action:
+
+•  Trigger file: /var/spool/asterisk/sysadmin/dahdi_restart (currently writable by asterisk:asterisk)
+•  Triggered script: /usr/sbin/sysadmin_dahdi_restart
+•  DAHDI restart call inside script: /etc/init.d/dahdi restart
+
+So the flaw is centered on the writable trigger in /var/spool/asterisk/sysadmin/ + root-run incron rule in /var/spool/incron/root.
